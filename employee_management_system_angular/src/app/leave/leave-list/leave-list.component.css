@@ -1,0 +1,18 @@
+td.Pending {
+    color: #FFF;
+    text-align: center;
+    background: orange;
+    font-weight: bold;
+}
+td.Approved {
+    color: #FFF;
+    text-align: center;
+    background: green;
+    font-weight: bold;
+}
+td.Disapproved {
+    color: #FFF;
+    text-align: center;
+    background: red;
+    font-weight: bold;
+}

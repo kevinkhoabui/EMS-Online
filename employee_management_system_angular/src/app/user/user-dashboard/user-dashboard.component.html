@@ -1,0 +1,39 @@
+<div class="header">
+  <h1 class="page-header">
+  Employee Leave and Payroll System Admin Dashboard
+  </h1>
+</div>
+<div id="page-inner">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Advanced Tables -->
+      <div class="card">
+        <div class="card-content">
+          <div class="table-responsive">
+            <div style="width: 50%; float:left; margin-right:30px" id="login-home">
+              <ul  *ngIf="user_level_id === '1'">
+                <li><a routerLink="/employee/add">Add Employee</a></li>
+                <li><a routerLink="/employees">Employee Report</a></li>
+                <li><a routerLink="/salary/add">Add Salary</a></li>
+                <li><a routerLink="/salary">Salary Report</a></li>
+                <li><a routerLink="/leave/add">Add Leave</a></li>
+                <li><a routerLink="/leaves">Leave Report</a></li>
+                <li><a routerLink="#" (click)="logout()">Logout</a></li>
+              </ul>
+              <ul  *ngIf="user_level_id === '2'">
+                <li><a routerLink="/salary/{{user_id}}">My Salary</a></li>
+                <li><a routerLink="/leave/add">Apply Leave</a></li>
+                <li><a routerLink="/leaves/{{user_id}}">My Leaves</a></li>
+                <li><a routerLink="/employee/update-employee/{{user_id}}">My Account</a></li>
+                <li><a routerLink="#" (click)="logout()">Logout</a></li>
+              </ul>
+            </div>
+            <div style="width: 45%; float: left;">
+              <img src="/assets/images/login.jpeg" style="width: 100%;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

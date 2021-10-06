@@ -1,0 +1,72 @@
+<div class="header">
+  <h1 class="page-header">
+    {{isUpdate ? "Update Leaves Details": "Add Employee Leaves"}}
+  </h1>
+</div>
+<div id="page-inner">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Advanced Tables -->
+      <div class="card">
+        <div class="leave_css">
+          Total Leaves Granted : 14<br>
+          Total Leaves Taken : {{total_leaves}}<br>
+          Total Remaining Leaves : {{14 - total_leaves}}<br>
+        </div>
+
+        <div class="card-content">
+          <form (ngSubmit)="onSubmit()" ngNativeValidate>
+            <div class="form-row" *ngIf="user_level_id === '1'">
+              <div class="col">
+                <label for="name">Select Employee ID</label>
+                <select style="height: 40px;" type="text" class="form-control" name="leave_employee_id"
+                  [(ngModel)]="leave.leave_employee_id" #product_type_id="ngModel" [value]="leave.leave_employee_id"
+                  required>
+                  <option value="">Please Select</option>
+                  <option *ngFor='let employee_data of employee' [value]="employee_data.employee_id">
+                    {{employee_data.employee_id}}
+                  </option>
+                </select>
+              </div>
+              <div class="col">
+                <label for="name">Leave Status</label>
+                <select style="height: 40px;" type="text" class="form-control" name="leave_status"
+                  [(ngModel)]="leave.leave_status" #product_type_id="ngModel" [value]="leave.leave_status"
+                  required>
+                  <option value="Pending">Pending</option>
+                  <option value="Approved">Approved</option>
+                  <option value="Disapproved">Disapproved</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <label for="name">From Date</label>
+                <input type="date" class="form-control" id="leave_from_date" required
+                  [(ngModel)]="leave.leave_from_date" name="leave_from_date">
+              </div>
+              <div class="col">
+                <label for="name">To Date</label>
+                <input type="date" class="form-control" id="leave_to_date" required [(ngModel)]="leave.leave_to_date"
+                  name="leave_to_date">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <label for="name">Leave Reson</label>
+                <input type="text" class="form-control" id="leave_reason" required [(ngModel)]="leave.leave_reason"
+                  name="leave_reason">
+              </div>
+              <div class="col">
+                <label for="name">Description</label>
+                <textarea type="text" class="form-control" id="leave_description" required
+                  [(ngModel)]="leave.leave_description" name="leave_description"></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
